@@ -20,7 +20,9 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 public class ExcelToXML {
@@ -111,7 +113,7 @@ public class ExcelToXML {
     // Determines the path of the output file based off the path of the input file
     private static File determineOutputFile(File inputFile) {
 	    String outputFileName = inputFile.getName().substring(0,
-			    inputFile.getName().lastIndexOf(".")) + ".xml";
+			    inputFile.getName().lastIndexOf(".")) + "_" + new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + ".xml";
 	    String outputFilePath = inputFile.getAbsolutePath().substring(0,
 			    inputFile.getAbsolutePath().lastIndexOf("\\"));
 	
